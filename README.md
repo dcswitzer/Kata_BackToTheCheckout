@@ -1,5 +1,8 @@
 # Kata_BackToTheCheckout
 
+## Kata source
+This kata was found on [link](http://codekata.com/kata/kata09-back-to-the-checkout/)
+
 Back to the supermarket. This week, we’ll implement the code for a checkout system that handles pricing schemes such as “apples cost 50 cents, three apples cost $1.30.”
 
 Way back in KataOne we thought about how to model the various options for supermarket pricing. We looked at things such as “three for a dollar,” “$1.99 per pound,” and “buy two, get one free.”
