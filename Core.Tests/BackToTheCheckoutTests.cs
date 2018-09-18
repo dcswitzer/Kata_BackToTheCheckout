@@ -4,20 +4,22 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using Shouldly.ShouldlyExtensionMethods;
 
+//Arrange
+//Act
+//Assert
+
 namespace Core.Tests
 {
 
-    public class ProductTests
+    public class BackToTheCheckoutTests
     {
         [TestClass]
-        public class Constructor
+        public class ProductConstructor
         {
 
-            //Arrange
-            //Act
-            //Assert
+
             [TestMethod]
-            public void ConstructorProduct_NoParam_ShouldCreateEmptyProduct()
+            public void ProductConstructor_NoParam_ShouldCreateEmptyProduct()
             {
                 //Arrange
                 var product = new Product();
@@ -30,7 +32,7 @@ namespace Core.Tests
             }
 
             [TestMethod]
-            public void ConstructorProduct_NoNameParam_ShouldThrowException()
+            public void ProductConstructor_NoNameParam_ShouldThrowException()
             {
 
                 //Arrange
@@ -42,7 +44,7 @@ namespace Core.Tests
             }
 
             [TestMethod]
-            public void ConstructorProduct_PriceEqualOrLessThenZero_ShouldThrowException()
+            public void ProductConstructor_PriceEqualOrLessThenZero_ShouldThrowException()
             {
 
                 //Arrange
@@ -55,7 +57,7 @@ namespace Core.Tests
             }
 
             [TestMethod]
-            public void ConstructorProduct_WithNameAndPrice_ShouldCreateProduct()
+            public void ProductConstructor_WithNameAndPrice_ShouldCreateProduct()
             {
 
                 //Arrange
@@ -67,6 +69,27 @@ namespace Core.Tests
                 product.Name.ShouldBe("A");
                 product.Price.ShouldBe(1.0m);
                }
+
+        }
+
+        [TestClass]
+        public class ShoppingCartConstructorTest
+        {
+            [TestMethod]
+            public void ShoppingCartConstructor_NoParam_ShouldCreateEmtpyShoppingCart()
+            {
+                //Arrange
+                var shoppingCart = new ShoppingCart();
+
+                //Act
+
+                //Assert
+                shoppingCart.Products.Count.ShouldBe(0);
+
+            }
+
+
+
 
         }
     }

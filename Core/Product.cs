@@ -19,7 +19,6 @@ namespace Core
 
         public Product(string name, decimal price)
         {
-           
             EnsureArg.IsNotNullOrWhiteSpace(name, "", options => options.WithMessage("The product must have a name."));
             EnsureArg.IsTrue(price > 0.0m, "", options => options.WithMessage("The item must have a price greater then 0."));
             Name = name;
