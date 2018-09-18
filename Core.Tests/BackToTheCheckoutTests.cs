@@ -14,7 +14,7 @@ namespace Core.Tests
     public class BackToTheCheckoutTests
     {
         [TestClass]
-        public class ProductConstructor
+        public class ProductTests
         {
 
 
@@ -73,7 +73,7 @@ namespace Core.Tests
         }
 
         [TestClass]
-        public class ShoppingCartConstructorTest
+        public class ShoppingCartTests
         {
             [TestMethod]
             public void ShoppingCartConstructor_NoParam_ShouldCreateEmtpyShoppingCart()
@@ -87,11 +87,7 @@ namespace Core.Tests
                 shoppingCart.Products.Count.ShouldBe(0);
 
             }
-        }
 
-        [TestClass]
-        public class AddProductToShoppingCart
-        {
             [TestMethod]
             public void AddProductToShoppingCart_AddProductToShoppingCart_ShouldAddProduct()
             {
@@ -131,6 +127,26 @@ namespace Core.Tests
                 shoppingcart.Products.Skip(2).First().Name.ShouldBe("C");
                 shoppingcart.Products.Skip(2).First().Price.ShouldBe(1.5m);
 
+            }
+        }
+
+        [TestClass]
+        public class CheckoutTests
+        {
+
+            [TestMethod]
+            public void CheckoutConstructor_NoParam_ShouldCreateEmptyCheckout()
+            {
+                //Arrange
+                var checkout = new Checkout();
+
+                //Act
+
+                //Assert
+                checkout.ShoppingCarts.Count.ShouldBe(0);
+                checkout.Total.ShouldBe(0);
+                checkout.DiscountTotal.ShouldBe(0);
+                checkout.DiscountRules.Count.ShouldBe(0);
             }
         }
     }
