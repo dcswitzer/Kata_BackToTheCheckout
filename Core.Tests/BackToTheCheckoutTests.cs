@@ -93,7 +93,7 @@ namespace Core.Tests
         public class AddProductToShoppingCart
         {
             [TestMethod]
-            public void AddProductToShoppingCart_ShouldAddProduct()
+            public void AddProductToShoppingCart_AddProductToShoppingCart_ShouldAddProduct()
             {
                 //Arrange
                 var shoppingcart = new ShoppingCart();
@@ -106,6 +106,31 @@ namespace Core.Tests
                 shoppingcart.Products.Count.ShouldBe(1);
                 shoppingcart.Products.First().Name.ShouldBe("A");
                 shoppingcart.Products.First().Price.ShouldBe(1.0m);
+            }
+
+            [TestMethod]
+            public void AddProductToShoppingCart_AddMultipleProductsToShoppingCart_ShouldAddAllProducts()
+            {
+                //Arrange
+                var shoppingcart = new ShoppingCart();
+                var product = new Product("A", 1.0m);
+                var product1 = new Product("B", 2.0m);
+                var product2 = new Product("C", 1.5m);
+
+                //Act
+                shoppingcart.AddProduct(product);
+                shoppingcart.AddProduct(product1);
+                shoppingcart.AddProduct(product2);
+
+                //Assert
+                shoppingcart.Products.Count.ShouldBe(3);
+                shoppingcart.Products.First().Name.ShouldBe("A");
+                shoppingcart.Products.First().Price.ShouldBe(1.0m);
+                shoppingcart.Products.Skip(1).First().Name.ShouldBe("B");
+                shoppingcart.Products.Skip(1).First().Price.ShouldBe(2.0m);
+                shoppingcart.Products.Skip(2).First().Name.ShouldBe("C");
+                shoppingcart.Products.Skip(2).First().Price.ShouldBe(1.5m);
+
             }
         }
     }
