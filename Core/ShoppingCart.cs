@@ -11,8 +11,12 @@ namespace Core
 
         public ShoppingCart()
         {
-            
+
         }
 
+        public void AddProduct(Product product)
+        {
+            Products.Add(product);
+        }
     }
 }

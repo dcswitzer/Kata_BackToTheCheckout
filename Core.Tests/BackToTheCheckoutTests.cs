@@ -87,10 +87,26 @@ namespace Core.Tests
                 shoppingCart.Products.Count.ShouldBe(0);
 
             }
+        }
 
+        [TestClass]
+        public class AddProductToShoppingCart
+        {
+            [TestMethod]
+            public void AddProductToShoppingCart_ShouldAddProduct()
+            {
+                //Arrange
+                var shoppingcart = new ShoppingCart();
+                var product =  new Product("A", 1.0m);           
 
+                //Act
+                shoppingcart.AddProduct(product);
 
-
+                //Assert
+                shoppingcart.Products.Count.ShouldBe(1);
+                shoppingcart.Products.First().Name.ShouldBe("A");
+                shoppingcart.Products.First().Price.ShouldBe(1.0m);
+            }
         }
     }
 }
