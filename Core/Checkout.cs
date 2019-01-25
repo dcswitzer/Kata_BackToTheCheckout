@@ -8,15 +8,22 @@ namespace Core
 {
     public class Checkout
     {
-        public ICollection<ShoppingCart> ShoppingCarts = new List<ShoppingCart>();
-        public decimal Total { get; set; }
+        public ShoppingCart ShoppingCart { get; set; }
+        public decimal RegularPrice { get; set; }
         public decimal DiscountTotal { get; set; }
-
-        public ICollection<DiscountRule> DiscountRules = new List<DiscountRule>();
+        public decimal TotalPrice { get; set; }
 
         public Checkout()
         {
             
+        }
+
+        public void CalculateRegularPrice(ShoppingCart shoppingcart)
+        {
+            foreach (Product p in shoppingcart.Products)
+            {
+                RegularPrice += p.Price;
+            }
         }
 
     }

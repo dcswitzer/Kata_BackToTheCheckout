@@ -143,7 +143,7 @@ namespace Core.Tests
                 //Act
 
                 //Assert
-                checkout.ShoppingCarts.Count.ShouldBe(0);
+                checkout.ShoppingCart.ShouldBeNull();
                 checkout.Total.ShouldBe(0);
                 checkout.DiscountTotal.ShouldBe(0);
                 checkout.DiscountRules.Count.ShouldBe(0);
